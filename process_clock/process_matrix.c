@@ -63,7 +63,7 @@ void send_message(Process *p, int target_id) {
     p->matrix_clock[p->id][p->id]++;
 
     // Increment the receiver's field in the sender's matrix
-    p->matrix_clock[target_id][p->id]++;
+    p->matrix_clock[p->id][target_id]++;
 
     int sock = connect_to_process(PORT_BASE + target_id);
     if (sock < 0) return;
