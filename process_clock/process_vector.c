@@ -118,6 +118,7 @@ int main(int argc, char *argv[]) {
 
     for (int i = 1; i <= 4; i++) {
         int target = (p.id + i) % NUM_PROCESSES;
+        if (target== p.id) target=(target+1)% NUM_PROCESSES ;
         send_message(&p, target);
         sleep(2);
     }
